@@ -32,7 +32,7 @@ export default {
       return this.isLoggedIn ? this.currentUser.email : ''
     },
     isAuthenticated() {
-      console.log(this.$store.state.user.isAuthenticated);
+      //console.log(this.$store.state.user.isAuthenticated);
       return this.$store.state.user.isAuthenticated;
     },
   },

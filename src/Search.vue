@@ -29,20 +29,20 @@ export default {
       }
   },
   created() {
-      console.log(this.$store.state.user.isAuthenticated);
+      //console.log(this.$store.state.user.isAuthenticated);
       if (!this.$store.state.user.isAuthenticated) {
-          console.log("Not Authenticated")
+          //console.log("Not Authenticated")
           window.location = '/';
       }
       this.$store.state.incidents = [];
   },
   computed: {
     isAuthenticated() {
-      console.log(this.$store.state.user.isAuthenticated);
+      //console.log(this.$store.state.user.isAuthenticated);
       return this.$store.state.user.isAuthenticated;
     },
     incidents() {
-      console.log(this.$store.state.incidents);
+      //console.log(this.$store.state.incidents);
       return this.$store.state.incidents;
     }
   },
