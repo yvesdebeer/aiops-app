@@ -1,16 +1,17 @@
 <template>
   <div v-if="isAuthenticated" class="container d-flex justify-content-center">
     <div class="card mt-5 p-4">
-        <div class="input-group mb-3"> <input type="text" class="form-control">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" v-model="searchField">
             <div class="input-group-append">
                 <button class="btn btn-primary" @click="searchClicked">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </div> 
-        <span class="text mb-4">Search results</span>
-        <Item v-for="incident in incidents" 
-        :key="incident.id"
+        <span class="text mb-6">Search results</span>
+        <Item v-for="incident in incidents.similar_incidents" 
+        :key="incident.incident_id"
         :item="incident"/>
     </div>
   </div>  
@@ -18,9 +19,15 @@
 
 <script>
 // @ is an alias to /src
+
 import Item from "@/Item.vue"  
 export default {
   name: 'Search',
+  data() {
+      return {
+          searchField: ''
+      }
+  },
   created() {
       console.log(this.$store.state.user.isAuthenticated);
       if (!this.$store.state.user.isAuthenticated) {
@@ -41,7 +48,8 @@ export default {
   },
   methods: {
     searchClicked() {
-      this.$store.dispatch("getIncidents");
+      this.$store.commit("setSearchfield", this.$data.searchField);
+      this.$store.dispatch("getIncidents", this.$data.searchField);
     },
   },
   components: {
@@ -58,7 +66,7 @@ body {
 }
 
 .card {
-    width: 500px;
+    width: 700px;
     border: none;
     border-radius: 20px
 }

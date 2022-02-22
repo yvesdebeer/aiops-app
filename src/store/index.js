@@ -11,6 +11,7 @@ export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
     incidents: [],
+    searchField: "",
     user: {
       isAuthenticated: false,
       name: "",
@@ -45,18 +46,22 @@ export default new Vuex.Store({
        state.endpoints.incidents = process.env.VUE_APP_INCIDENTS_URL;
        url = state.endpoints.incidents;
        console.log(process.env);
+     },
+     setSearchfield(state, payload) {
+       state.searchField = payload;
      }
    },
    actions: { //asynchronous
-     async getIncidents(state) {
+     async getIncidents(state, payload) {
+       console.log("state",payload)
       const requestOptions = {
         method: "POST",
-        headers: { "Target-URL": "https://aimanager-aio-similar-incidents-service-cp4waiops.apps.spumier.cp.fyre.ibm.com/v2/similar_incidents/search", "accept": "application/json", "Content-Type": "application/json" },
+        headers: { "accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
           "story_id": "1",
           "application_id": "1000",
           "application_group_id": "1000",
-          "text": "password"
+          "text": payload
         })
       };
        const incidents = await fetch(url, requestOptions);

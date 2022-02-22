@@ -1,8 +1,15 @@
 <template>
-  <div class="d-flex flex-row mb-3">
-    <div class="d-flex flex-column p-3">
-        <p class="mb-2">{{item.description}}</p>
-        <small class="text-muted">{{item.solution}}</small>
+  <div class="card-deck">
+    <div class="card text-left">
+        <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text"><small class="text-muted">{{item.resolution}}</small></p>
+            <p class="card-text">Incident ID : <small class="text-muted">{{item.incident_id}}</small></p>
+            <p class="card-text">Source Incident ID : <small class="text-muted">{{item.source_incident_id}}</small></p>
+        </div>
+        <div class="card-footer">
+            <p>Date : <small class="text-muted">{{item.started_at}}</small></p>
+        </div>
     </div>
   </div>
 </template>
@@ -19,8 +26,8 @@ export default {
     },
     filters: {
         shortDescription(value) {
-        if (value && value.length > 70) {
-            return value.substring(0, 70) + '...';
+        if (value && value.length > 100) {
+            return value.substring(0, 100) + '...';
         } else {
             return value;
         }
@@ -40,9 +47,10 @@ body {
 }
 
 .card {
-    width: 500px;
-    border: none;
-    border-radius: 20px
+    width: 600px;
+    border: 1.5px solid #E3E6ED;
+    border-radius: 10px;
+    margin: 5px 5px 5px 5px
 }
 
 .form-control {
@@ -79,7 +87,7 @@ input.form-control:focus {
 }
 
 .flex-column p {
-    font-size: 14px
+    font-size: px
 }
 
 span.mb-2 {
@@ -92,13 +100,13 @@ h5 span {
     color: #869099
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 750px) {
     .card {
         display: flex;
         justify-content: center;
         text-align: center
     }
-
+    
     .price {
         border: none;
         margin: 0 auto
