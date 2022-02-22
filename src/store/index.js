@@ -53,6 +53,7 @@ export default new Vuex.Store({
    },
    actions: { //asynchronous
      async getIncidents(state, payload) {
+       console.log("state",payload)
       const requestOptions = {
         method: "POST",
         headers: { "accept": "application/json", "Content-Type": "application/json" },
