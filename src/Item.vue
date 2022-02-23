@@ -4,8 +4,11 @@
         <div class="card-body">
             <h5 class="card-title">{{item.title}}</h5>
             <p class="card-text"><small class="text-muted">{{item.resolution}}</small></p>
-            <p class="card-text">Incident ID : <small class="text-muted">{{item.incident_id}}</small></p>
-            <p class="card-text">Source Incident ID : <small class="text-muted">{{item.source_incident_id}}</small></p>
+            <p class="card-text">Source Incident ID :
+                <a :href="'https://ing.service-now.com/incident.do?sysparm_query=number=' + item.source_incident_id" target="_blank">
+                    {{item.source_incident_id}}
+                </a>
+            </p>
         </div>
         <div class="card-footer">
             <p>Date : <small class="text-muted">{{item.started_at}}</small></p>

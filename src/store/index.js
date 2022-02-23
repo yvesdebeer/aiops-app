@@ -65,6 +65,7 @@ export default new Vuex.Store({
       };
        const incidents = await fetch(url, requestOptions);
        const incds = await incidents.json();
+       console.log(incds);
        state.commit("setIncidents", incds);
      }
    }
