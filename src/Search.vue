@@ -1,7 +1,7 @@
 <template>
   <div v-if="isAuthenticated" class="container-fluid">
     <div class="card mt-5 p-4" style="width: auto;">
-        <div class="input-group mb-3" style="width: 600px;">
+        <div class="input-group mb-3" style="width: 800px;">
             <input type="text" class="form-control" v-model="searchField" @keyup.enter="searchClicked">
             <div class="input-group-append">
                 <button class="btn btn-primary" @click="searchClicked">
