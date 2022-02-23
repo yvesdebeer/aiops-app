@@ -2,7 +2,7 @@
   <div v-if="isAuthenticated" class="container d-flex justify-content-center">
     <div class="card mt-5 p-4">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" v-model="searchField">
+            <input type="text" class="form-control" v-model="searchField" @keyup.enter="searchClicked">
             <div class="input-group-append">
                 <button class="btn btn-primary" @click="searchClicked">
                     <i class="fas fa-search"></i>
