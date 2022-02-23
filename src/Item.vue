@@ -9,6 +9,7 @@
                     {{item.source_incident_id}}
                 </a>
             </p>
+            <p>Score : <small class="text-muted">{{item.score}}</small></p>
         </div>
         <div class="card-footer">
             <p>Date : <small class="text-muted">{{item.started_at}}</small></p>
