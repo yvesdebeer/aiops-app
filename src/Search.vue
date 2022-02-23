@@ -1,7 +1,7 @@
 <template>
-  <div v-if="isAuthenticated" class="container d-flex justify-content-center">
-    <div class="card mt-5 p-4">
-        <div class="input-group mb-3">
+  <div v-if="isAuthenticated" class="container-fluid">
+    <div class="card mt-5 p-4" style="width: auto;">
+        <div class="input-group mb-3" style="width: 600px;">
             <input type="text" class="form-control" v-model="searchField" @keyup.enter="searchClicked">
             <div class="input-group-append">
                 <button class="btn btn-primary" @click="searchClicked">
@@ -9,7 +9,7 @@
                 </button>
             </div>
         </div> 
-        <span class="text mb-6">Search results</span>
+        <span class="text mb-3">Search results</span>
         <Item v-for="incident in incidents.similar_incidents" 
         :key="incident.incident_id"
         :item="incident"/>

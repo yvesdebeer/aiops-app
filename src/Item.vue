@@ -9,10 +9,10 @@
                     {{item.source_incident_id}}
                 </a>
             </p>
-            <p>Score : <small class="text-muted">{{item.score}}</small></p>
+            <p class="card-text">Score : <small class="text-muted">{{item.score}}</small></p>
         </div>
         <div class="card-footer">
-            <p>Date : <small class="text-muted">{{item.started_at}}</small></p>
+            <p class="card-text">Date : <small class="text-muted">{{item.started_at}}</small></p>
         </div>
     </div>
   </div>
@@ -84,6 +84,10 @@ input.form-control:focus {
     
 }
 
+.card-text {
+    margin: 0 0 0 0;
+}
+
 .flex-row {
     border: 1px solid #F2F2F4;
     border-radius: 10px;
@@ -104,7 +108,7 @@ h5 span {
     color: #869099
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1024px) {
     .card {
         display: flex;
         justify-content: center;

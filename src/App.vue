@@ -20,7 +20,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'IBM Plex Sans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
