@@ -56,7 +56,7 @@ export default new Vuex.Store({
        state.endpoints.descriptionURL = process.env.VUE_APP_DESCRIPTION_URL;
        state.endpoints.description_targetURL = process.env.VUE_APP_DESCRIPTION_TARGETURL;
        url_incidents = state.endpoints.incidents;
-       console.log(process.env);
+       //console.log(process.env);
      },
      setSearchfield(state, payload) {
        state.searchField = payload;
@@ -87,7 +87,7 @@ export default new Vuex.Store({
             window.location = '/';
           }
           const incds = await incidents.json();
-          console.log(incds);
+          //console.log(incds);
           state.commit("setIncidents", incds);
         } catch(err) {
           console.log('error = ', err);
