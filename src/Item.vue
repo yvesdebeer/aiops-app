@@ -9,6 +9,7 @@
                     {{item.source_incident_id}}
                 </a>
             </p>
+            <p class="card-text">Description : <small class="text-muted">{{description}}</small></p>
             <p class="card-text">Score : <small class="text-muted">{{item.score}}</small></p>
         </div>
         <div class="card-footer">
@@ -25,7 +26,7 @@ export default {
     props: ['item'],
     data() {
         return {
-            size: ''
+            description: ''
         }
     },
     filters: {
@@ -37,8 +38,28 @@ export default {
         }
         }
     },
+    created() {
+        this.getDescription(this.item.source_incident_id);
+    },
+    computed: {
+        /* description() {
+            console.log("Here it is : ", this.$store.state.description);
+            return this.$store.state.description;
+        } */
+    },
     methods: {
-        
+        async getDescription(payload) {
+        const GET_url = this.$store.state.endpoints.descriptionURL + payload;
+        const GETrequestOptions = {
+        method: "GET",
+        headers: { "Target-URL": this.$store.state.endpoints.description_targetURL + payload, "Authorization": "Bearer " + this.$store.state.user.accessToken, "accept": "application/json", "Content-Type": "application/json" },
+        // headers: { "Target-URL": this.state.endpoints.targetURL, "Authorization": "Bearer " + this.state.user.accessToken, "accept": "application/json", "Content-Type": "application/json" },
+        };      
+        const description = await fetch(GET_url, GETrequestOptions);
+        const desc = await description.json();
+        //console.log(desc.hits.hits['0']._source.description);
+        this.description = desc.hits.hits['0']._source.description;
+     }
     }
 }
 </script>
